@@ -137,8 +137,8 @@ class MediaLibrary extends React.Component {
   handleInsert = () => {
     const { selectedFile } = this.state;
     const { name, url, urlIsPublicPath } = selectedFile;
-    const { insertMedia, publicFolder } = this.props;
-    const publicPath = urlIsPublicPath ? url : resolvePath(name, publicFolder);
+    const { insertMedia, publicFolder, publicFolderRelative } = this.props;
+    const publicPath = urlIsPublicPath ? url : resolvePath(name, publicFolder, publicFolderRelative);
     insertMedia(publicPath);
     this.handleClose();
   };
@@ -341,6 +341,7 @@ const mapStateToProps = state => {
   const { config, mediaLibrary } = state;
   const configProps = {
     publicFolder: config.get('public_folder'),
+    publicFolderRelative: config.get('public_folder_relative'),
   };
   const mediaLibraryProps = {
     isVisible: mediaLibrary.get('isVisible'),

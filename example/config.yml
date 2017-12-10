@@ -3,6 +3,8 @@ backend:
 
 display_url: https://example.com
 media_folder: "assets/uploads"
+public_folder: ../../assets/uploads
+public_folder_relative: true
 
 collections: # A list of collections the CMS should be able to edit
   - name: "posts" # Used in routes, ie.: /admin/collections/:slug/edit
